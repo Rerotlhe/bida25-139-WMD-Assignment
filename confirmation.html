@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Booking Confirmed | RERE'S BEAUTY HUB</title>
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f7f7f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+p {
+  color: #555;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: gold;
+  color: black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>✅ Booking Confirmed</h1>
+  <p id="details"></p>
+
+  <button onclick="goHome()">Back to Home</button>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+const service = params.get("service");
+const date = params.get("date");
+const time = params.get("time");
+
+document.getElementById("details").textContent =
+  `Thank you ${name}! Your ${service} appointment is booked for ${date} at ${time}.`;
+
+function goHome() {
+  window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

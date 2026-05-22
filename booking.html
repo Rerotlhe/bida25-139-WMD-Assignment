@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Book Appointment | RERE'S BEAUTY HUB</title>
+<!-- Bootstrap CSS --> 
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> 
+<link rel="stylesheet" href="style.css">
+
+
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+<nav class="navbar">
+
+ <div class="logo">
+  <img src="logo.png" alt="Logo">
+  <span>RERE'S BEAUTY HUB</span>
+</div> 
+<!-- HAMBURGER MENU -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    
+    <li>
+      <a href="booking.html" class="nav-book-btn">
+        BOOK NOW
+      </a>
+    </li>
+  </ul>
+
+</nav>
+ 
+<div class="container">
+
+  <h1>Book Your Appointment</h1>
+
+  <img id="selected-look" src="" alt="Selected Style">
+
+  <!-- PRICE DISPLAY -->
+
+  <div class="price-box">
+    Service: <span id="serviceName"></span><br>
+    Style: <span id="styleName">None</span><br>
+    Price: P<span id="price">0</span>
+  </div>
+
+  <!-- FORM -->
+
+  <form action="confirmation.html" method="GET">
+
+    <input type="text" name="name" placeholder="Full Name" required>
+
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+
+    <input type="date" name="date" required>
+
+    <input type="time" name="time" required>
+
+    <select id="styleSelect" required>
+      <option value="">Select Style</option>
+    </select>
+
+    <!-- HIDDEN INPUTS -->
+
+    <input type="hidden" name="service" id="serviceInput">
+    <input type="hidden" name="style" id="styleInput">
+    <input type="hidden" name="price" id="priceInput">
+
+    <button type="submit">Confirm Booking</button>
+
+  </form>
+
+  <!-- PRICE TABLE (HIDDEN DATA SOURCE) -->
+
+  <table id="priceTable">
+
+    <tr>
+      <th>Service</th>
+      <th>Style</th>
+      <th>Price</th>
+    </tr>
+
+    <tr><td>Hair Styling</td><td>Knotless braids</td><td>500</td></tr>
+    <tr><td>Hair Styling</td><td>Mini twists</td><td>150</td></tr>
+    <tr><td>Hair Styling</td><td>Lemonade braids</td><td>550</td></tr>
+    <tr><td>Hair Styling</td><td>Bob boho tribal braids</td><td>400</td></tr>
+    <tr><td>Hair Styling</td><td>Cornrow</td><td>300</td></tr>
+    <tr><td>Hair Styling</td><td>Goddess braids</td><td>600</td></tr>
+
+    <tr><td>Nails</td><td>French tip manicure</td><td>200</td></tr>
+    <tr><td>Nails</td><td>Ombre manicure</td><td>250</td></tr>
+    <tr><td>Nails</td><td>Russian manicure</td><td>250</td></tr>
+    <tr><td>Nails</td><td>French tip pedicure</td><td>100</td></tr>
+    <tr><td>Nails</td><td>Plain pedicure</td><td>50</td></tr>
+
+    <tr><td>Makeup</td><td>Soft Beat</td><td>200</td></tr>
+    <tr><td>Makeup</td><td>Full Beat</td><td>300</td></tr>
+    <tr><td>Makeup</td><td>Bridal Beat</td><td>500</td></tr>
+
+  </table>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const service = params.get("service");
+const style = params.get("style");
+const look = params.get("look");
+
+/* SET IMAGE */
+document.getElementById("selected-look").src = look;
+
+/* SERVICE */
+document.getElementById("serviceName").textContent = service;
+
+/* TABLE */
+const table = document.getElementById("priceTable");
+const rows = table.querySelectorAll("tr");
+const styleSelect = document.getElementById("styleSelect");
+
+/* LOAD STYLES */
+rows.forEach((row, index) => {
+
+  if(index === 0) return;
+
+  const rowService = row.cells[0].textContent;
+  const rowStyle = row.cells[1].textContent;
+  const rowPrice = row.cells[2].textContent;
+
+  if(rowService === service){
+
+    const option = document.createElement("option");
+
+    option.value = rowStyle;
+    option.textContent = `${rowStyle} - P${rowPrice}`;
+    option.dataset.price = rowPrice;
+
+    styleSelect.appendChild(option);
+  }
+
+});
+
+/* AUTO SELECT */
+if(style){
+  styleSelect.value = style;
+  updateBookingDetails();
+}
+
+styleSelect.addEventListener("change", updateBookingDetails);
+
+/* UPDATE FUNCTION */
+function updateBookingDetails(){
+
+  const selectedOption = styleSelect.options[styleSelect.selectedIndex];
+
+  const selectedStyle = selectedOption.value;
+  const selectedPrice = selectedOption.dataset.price;
+
+  document.getElementById("styleName").textContent = selectedStyle;
+  document.getElementById("price").textContent = selectedPrice;
+
+  document.getElementById("serviceInput").value = service;
+  document.getElementById("styleInput").value = selectedStyle;
+  document.getElementById("priceInput").value = selectedPrice;
+}
+
+</script>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h3>RERE'S BEAUTY HUB</h3>
+
+  <p>
+    Luxury beauty salon dedicated to elegance,
+    confidence, and exceptional care.
+  </p>
+
+  <br>
+
+  <p><strong>Location:</strong> Gaborone, Botswana</p>
+  <p><strong>Business Hours:</strong> Mon - Sat | 8:00AM - 6:00PM</p>
+  <p><strong>Phone:</strong> +267 71234567</p>
+  <p><strong>Email:</strong> info@reresbeautyhub.com</p>
+
+  <br>
+
+  <div class="footer-links">
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+
+  </div>
+
+  <br>
+
+  <p>© 2026 RERE'S BEAUTY HUB. All Rights Reserved.</p>
+
+
+
+</footer>
+<script>
+
+function toggleMenu(){
+
+  document.querySelector(".nav-links")
+    .classList.toggle("active");
+
+}
+
+</script>
+
+</body>
+</html>
