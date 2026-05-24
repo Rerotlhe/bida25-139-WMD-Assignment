@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nails Gallery | RERE'S BEAUTY HUB</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+  <div class="logo">
+    <img src="logo.png" alt="Logo">
+    <span>RERE'S BEAUTY HUB</span>
+  </div>
+
+<!-- HAMBURGER MENU -->
+  <div class="menu-btn" onclick="toggleMenu()">
+    ☰
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+
+    <li>
+      <a href="booking.html" class="nav-book-btn">
+        BOOK NOW
+      </a>
+    </li>
+  </ul>
+
+</nav>
+
+<!-- PAGE TITLE -->
+
+<h1 class="page-title">Nails  Gallery</h1>
+
+<!-- GALLERY -->
+
+<div class="gallery">
+
+  <img
+    src="manicure-french tip.jpg"
+    alt="French Tip Manicure"
+    onclick="openLightbox(this.src, 'Nails', 'French tip manicure', '200')"
+  >
+
+  <img
+    src="ombre manicure.jpg"
+    
+    onclick="openLightbox(this.src, 'Nails', 'Ombre manicure', '250')"
+  >
+
+  <img
+    src="rusisian manicure.jpg"
+  
+    onclick="openLightbox(this.src, 'Nails', 'Russian manicure', '250')"
+  >
+
+  <img
+    src="pedicure-french tip.jpg"
+    
+    onclick="openLightbox(this.src, 'Nails', 'French tip pedicure', '100')"
+  >
+  <img
+  src="PLAIN PEDICURE.jpg"
+
+  onclick="openLightbox(this.src, 'Nails', 'Plain pedicure', '50')"
+>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+
+  <span class="close" onclick="closeLightbox()">&times;</span>
+
+  <div class="lightbox-content">
+
+    <img id="lightbox-img">
+
+    <button id="bookBtn">Book This Look</button>
+
+  </div>
+
+</div>
+
+<!-- SCRIPT -->
+
+<script>
+
+let selectedImage = "";
+let selectedService = "";
+let selectedStyle = "";
+let selectedPrice = "";
+
+/* OPEN LIGHTBOX */
+
+function openLightbox(src, service, style, price){
+
+  document.getElementById("lightbox").style.display = "flex";
+
+  document.getElementById("lightbox-img").src = src;
+
+ 
+  selectedImage = src;
+  selectedService = service;
+  selectedStyle = style;
+  selectedPrice = price;
+}
+
+/* CLOSE LIGHTBOX */
+
+function closeLightbox(){
+
+  document.getElementById("lightbox").style.display = "none";
+}
+
+/* BOOK BUTTON */
+
+document.getElementById("bookBtn").onclick = function(){
+
+  window.location.href =
+    "booking.html?service=" +
+    encodeURIComponent(selectedService) +
+
+    "&style=" +
+    encodeURIComponent(selectedStyle) +
+
+    "&price=" +
+    encodeURIComponent(selectedPrice) +
+
+    "&look=" +
+    encodeURIComponent(selectedImage);
+
+};
+
+
+
+function toggleMenu(){
+
+  document.querySelector(".nav-links")
+    .classList.toggle("active");
+
+}
+
+</script>
+
+</script>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h3>RERE'S BEAUTY HUB</h3>
+
+  <p>
+    Luxury beauty salon dedicated to elegance,
+    confidence, and exceptional care.
+  </p>
+
+  <br>
+
+  <p><strong>Location:</strong> Gaborone, Botswana</p>
+  <p><strong>Business Hours:</strong> Mon - Sat | 8:00AM - 6:00PM</p>
+  <p><strong>Phone:</strong> +267 71234567</p>
+  <p><strong>Email:</strong> info@reresbeautyhub.com</p>
+
+  <br>
+
+  <div class="footer-links">
+
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="booking.html">Booking</a>
+    <a href="contact.html">Contact</a>
+
+  </div>
+
+  <br>
+
+  <p>© 2026 RERE'S BEAUTY HUB. All Rights Reserved.</p>
+
+</footer>
+
+</body>
+</html>

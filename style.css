@@ -1,0 +1,686 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* ROOT VARIABLES */
+:root{
+  --dark:#1E1E1E;
+  --gold:#C9A14A;
+  --light:#FAF8F4;
+  --white:#ffffff;
+  --text:#555;
+}
+
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:var(--light);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 60px;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+}
+
+/* LOGO */
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:white;
+  font-family:'Playfair Display', serif;
+  font-size:24px;
+}
+
+.logo img{
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* NAV LINKS */
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:25px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:white;
+  font-size:14px;
+  text-transform:uppercase;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+/* BOOK BUTTON */
+.nav-book-btn{
+  border:1px solid var(--gold);
+  padding:10px 20px;
+  border-radius:30px;
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.nav-book-btn:hover{
+  background:var(--gold);
+  color:black;
+}
+
+/* MOBILE MENU BUTTON */
+.menu-btn{
+  display:none;
+  font-size:30px;
+  color:white;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  height:100vh;
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url("hero.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+  color:white;
+  padding:20px;
+}
+
+.hero h1{
+  font-size:70px;
+  font-family:'Playfair Display', serif;
+}
+
+.hero p{
+  font-size:18px;
+  margin:20px 0;
+}
+
+/* BUTTONS */
+button{
+  padding:14px 30px;
+  border:none;
+  border-radius:8px;
+  background:var(--gold);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:var(--dark);
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:100px 80px;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.section-title h2{
+  font-size:40px;
+  font-family:'Playfair Display', serif;
+  color:var(--dark);
+}
+
+/* ================= CARDS ================= */
+
+.card{
+  background:white;
+  padding:35px;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.card-link{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* GRID */
+.service-container,
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+/* TESTIMONIALS */
+.testimonial-container{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:25px;
+}
+
+.testimonial-card{
+  background:white;
+  width:300px;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ================= ABOUT ================= */
+
+.about-hero{
+  height:500px;
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url("blackwomen1.jpg");
+
+  background-size:cover;
+  background-position:center;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+}
+
+.about-hero h1{
+  font-size:65px;
+}
+
+.story{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.story img{
+  width:45%;
+  border-radius:20px;
+  object-fit:cover;
+}
+
+.story-text{
+  width:50%;
+}
+
+.story-text h2{
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+/* WHY CHOOSE US + OUR PROMISE CARDS */
+
+.values-container,
+.promise-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  gap:30px;
+  margin-top:40px;
+}
+
+/* CARD STYLE */
+.value-box,
+.promise-box{
+  background:#fff;
+  padding:35px 25px;
+  border-radius:16px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:0.3s ease;
+}
+
+/* HOVER EFFECT */
+.value-box:hover,
+.promise-box:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* HEADINGS INSIDE CARDS */
+.value-box h3,
+.promise-box h3{
+  color:#1E1E1E;
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+/* TEXT INSIDE CARDS */
+.value-box p,
+.promise-box p{
+  color:#555;
+  font-size:14px;
+  line-height:1.6;
+}
+
+/* EXPERIENCE LUXURY BEAUTY (ABOUT PAGE CTA SECTION) */
+
+.cta{
+  text-align:center;
+  background:var(--dark);
+  color:white;
+
+  padding:100px 20px;
+  margin-top:60px;
+}
+
+.cta h2{
+  font-size:42px;
+  font-family:'Playfair Display', serif;
+  margin-bottom:15px;
+}
+
+.cta p{
+  font-size:16px;
+  color:#ddd;
+  margin-bottom:25px;
+}
+
+/* CTA BUTTON */
+.cta button{
+  background:var(--gold);
+  color:white;
+  border:none;
+  padding:14px 30px;
+  border-radius:30px;
+  cursor:pointer;
+  transition:0.3s ease;
+}
+
+.cta button:hover{
+  background:white;
+  color:black;
+}
+
+/* ================= SIGNATURE ================= */
+
+.signature{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+  padding:60px;
+}
+
+.signature-image img{
+  width:380px;
+  border-radius:15px;
+}
+
+.signature-text{
+  max-width:500px;
+}
+
+/* ================= CONTACT ================= */
+
+.contact{
+  display:flex;
+  gap:60px;
+  padding:140px 80px 100px;
+}
+
+.contact-info,
+.contact-form{
+  width:50%;
+}
+
+.contact-form{
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+input,
+select,
+textarea{
+  padding:14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+}
+
+/* ================= BOOKING ================= */
+
+.container{
+  max-width:700px;
+  margin:140px auto 70px;
+  background:white;
+  padding:40px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+#priceTable{
+  display:none;
+}
+
+#selected-look{
+  width:100%;
+  max-width:350px;
+  height:auto;          /* IMPORTANT: removes fixed height */
+  object-fit:contain;   /* shows full image */
+  display:block;
+  margin:15px auto 25px;
+
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.1);
+}
+
+/*gallery pages*/
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr); /* 3 images per row */
+  gap:25px;
+
+  max-width:1100px;
+  margin:auto;
+  padding:20px 20px 120px;
+}
+
+.page-title{
+  text-align:center;
+  margin:120px 0 30px; /* pushes it below fixed navbar */
+  font-size:42px;
+  font-family:'Playfair Display', serif;
+  color:#1E1E1E;
+}
+
+
+.gallery img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.gallery img:hover{
+  transform:scale(1.03);
+}
+
+
+/* ================= LIGHTBOX ================= */
+
+#lightbox{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+
+  background:rgba(0,0,0,0.9);
+
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+}
+
+/* DESKTOP STYLE */
+
+.lightbox-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+
+#lightbox-img{
+  max-width:90%;
+  max-height:75vh;
+
+  border-radius:15px;
+  margin-bottom:20px;
+}
+
+#bookBtn{
+  padding:14px 30px;
+  border:none;
+  border-radius:30px;
+  background:#C9A14A;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:45px;
+  color:white;
+  cursor:pointer;
+}
+
+/* ================= MOBILE STYLE ================= */
+
+@media(max-width:768px){
+
+  .lightbox-content{
+
+    width:90%;
+    max-width:320px;
+
+    background:white;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  #lightbox-img{
+
+    width:100%;
+    max-width:100%;
+
+    height:420px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin-bottom:20px;
+  }
+
+  #bookBtn{
+
+    width:100%;
+
+    padding:14px;
+
+    font-size:16px;
+  }
+
+}
+
+
+.gallery{
+  padding:20px 80px 120px; /* EXTRA bottom space */
+}
+
+
+
+
+/* ================= FOOTER ================= */
+
+
+footer{
+  background:#000000;
+  color:#ffffff;
+  text-align:center;
+  padding:70px 20px;
+}
+
+/* FOOTER TITLE */
+footer h3{
+  font-family:'Playfair Display', serif;
+  font-size:28px;
+  margin-bottom:15px;
+}
+
+/* FOOTER LINKS */
+.footer-links{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:25px;
+  margin-top:20px;
+}
+
+.footer-links a{
+  color:#C9A14A;
+  text-decoration:none;
+  transition:0.3s ease;
+}
+
+.footer-links a:hover{
+  color:#ffffff;
+}
+
+/* FOOTER TEXT */
+footer p{
+  margin:8px 0;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .menu-btn{
+    display:block;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:80px;
+    right:0;
+    background:black;
+    width:250px;
+    flex-direction:column;
+    display:none;
+    padding:20px;
+    text-align:center;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  section{
+    padding:80px 20px;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .story{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .story img,
+  .story-text{
+    width:100%;
+  }
+
+  .contact{
+    flex-direction:column;
+    padding:120px 20px 60px;
+  }
+
+  .contact-info,
+  .contact-form{
+    width:100%;
+  }
+
+  .container{
+    margin:120px 15px 50px;
+    padding:25px;
+ 
+ }
+
+ 
+
+
+
+}
+
+
+
+
